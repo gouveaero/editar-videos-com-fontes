@@ -1,0 +1,32 @@
+[
+  {
+    "component": "01_principal",
+    "time": 1.5,
+    "golden": "golden/01_principal_1.5.png"
+  },
+  {
+    "component": "01_principal",
+    "time": 5.7,
+    "golden": "golden/01_principal_5.7.png"
+  },
+  {
+    "component": "01_principal",
+    "time": 12.7,
+    "golden": "golden/01_principal_12.7.png"
+  },
+  {
+    "component": "05_superpotencia",
+    "time": 2,
+    "golden": "golden/05_superpotencia_2.0.png"
+  },
+  {
+    "component": "05_superpotencia",
+    "time": 6,
+    "golden": "golden/05_superpotencia_6.0.png"
+  },
+  {
+    "component": "05_superpotencia",
+    "time": 9.5,
+    "golden": "golden/05_superpotencia_9.5.png"
+  }
+]

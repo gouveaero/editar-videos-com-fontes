@@ -1,0 +1,368 @@
+[
+  {
+    "start": 0,
+    "end": 1.3150000000000002,
+    "text": "Uma inteligência artificial",
+    "display_text": "Uma inteligência artificial",
+    "words": [
+      {
+        "word": "Uma",
+        "start": 0.0,
+        "end": 0.36,
+        "probability": 0.98583984375
+      },
+      {
+        "word": "inteligência",
+        "start": 0.36,
+        "end": 0.94,
+        "probability": 0.99462890625
+      },
+      {
+        "word": "artificial",
+        "start": 0.94,
+        "end": 1.34,
+        "probability": 0.99951171875
+      }
+    ]
+  },
+  {
+    "start": 1.3150000000000002,
+    "end": 2.815,
+    "text": "pode ter resolvido um dos",
+    "display_text": "pode ter resolvido um dos",
+    "words": [
+      {
+        "word": "pode",
+        "start": 1.34,
+        "end": 1.82,
+        "probability": 0.9990234375
+      },
+      {
+        "word": "ter",
+        "start": 1.82,
+        "end": 2.0,
+        "probability": 0.72802734375
+      },
+      {
+        "word": "resolvido",
+        "start": 2.0,
+        "end": 2.56,
+        "probability": 0.986328125
+      },
+      {
+        "word": "um",
+        "start": 2.56,
+        "end": 2.82,
+        "probability": 0.666015625
+      },
+      {
+        "word": "dos",
+        "start": 2.82,
+        "end": 2.84,
+        "probability": 0.99951171875
+      }
+    ]
+  },
+  {
+    "start": 2.815,
+    "end": 4.34,
+    "text": "sete problemas do milênio.",
+    "display_text": "sete problemas do milênio.",
+    "words": [
+      {
+        "word": "sete",
+        "start": 2.84,
+        "end": 3.22,
+        "probability": 0.7724609375
+      },
+      {
+        "word": "problemas",
+        "start": 3.22,
+        "end": 3.66,
+        "probability": 0.99853515625
+      },
+      {
+        "word": "do",
+        "start": 3.66,
+        "end": 3.84,
+        "probability": 0.99755859375
+      },
+      {
+        "word": "milênio.",
+        "start": 3.84,
+        "end": 4.22,
+        "probability": 0.9912109375
+      }
+    ]
+  },
+  {
+    "start": 4.455,
+    "end": 5.895,
+    "text": "Uma das perguntas mais",
+    "display_text": "Uma das perguntas mais",
+    "words": [
+      {
+        "word": "Uma",
+        "start": 4.48,
+        "end": 4.94,
+        "probability": 0.97412109375
+      },
+      {
+        "word": "das",
+        "start": 4.94,
+        "end": 5.1,
+        "probability": 1.0
+      },
+      {
+        "word": "perguntas",
+        "start": 5.1,
+        "end": 5.58,
+        "probability": 1.0
+      },
+      {
+        "word": "mais",
+        "start": 5.58,
+        "end": 5.92,
+        "probability": 0.99951171875
+      }
+    ]
+  },
+  {
+    "start": 5.895,
+    "end": 7.515,
+    "text": "difíceis e fundamentais de",
+    "display_text": "difíceis e fundamentais de",
+    "words": [
+      {
+        "word": "difíceis",
+        "start": 5.92,
+        "end": 6.6,
+        "probability": 1.0
+      },
+      {
+        "word": "e",
+        "start": 6.6,
+        "end": 6.68,
+        "probability": 0.99853515625
+      },
+      {
+        "word": "fundamentais",
+        "start": 6.68,
+        "end": 7.4,
+        "probability": 1.0
+      },
+      {
+        "word": "de",
+        "start": 7.4,
+        "end": 7.54,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 7.515,
+    "end": 9.575,
+    "text": "toda matemática, aberta há",
+    "display_text": "toda matemática, aberta há",
+    "words": [
+      {
+        "word": "toda",
+        "start": 7.54,
+        "end": 7.74,
+        "probability": 0.99951171875
+      },
+      {
+        "word": "matemática,",
+        "start": 7.74,
+        "end": 8.46,
+        "probability": 0.9833984375
+      },
+      {
+        "word": "aberta",
+        "start": 8.76,
+        "end": 9.42,
+        "probability": 0.998046875
+      },
+      {
+        "word": "há",
+        "start": 9.42,
+        "end": 9.6,
+        "probability": 0.94482421875
+      }
+    ]
+  },
+  {
+    "start": 9.575,
+    "end": 10.739999999999998,
+    "text": "quase 90 anos.",
+    "display_text": "quase 90 anos.",
+    "words": [
+      {
+        "word": "quase",
+        "start": 9.6,
+        "end": 9.84,
+        "probability": 1.0
+      },
+      {
+        "word": "90",
+        "start": 9.84,
+        "end": 10.18,
+        "probability": 0.98974609375
+      },
+      {
+        "word": "anos.",
+        "start": 10.18,
+        "end": 10.62,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 10.855,
+    "end": 11.995,
+    "text": "Mas o que deveria ser",
+    "display_text": "Mas o que deveria ser",
+    "words": [
+      {
+        "word": "Mas",
+        "start": 10.88,
+        "end": 11.44,
+        "probability": 0.99951171875
+      },
+      {
+        "word": "o",
+        "start": 11.44,
+        "end": 11.52,
+        "probability": 0.99951171875
+      },
+      {
+        "word": "que",
+        "start": 11.52,
+        "end": 11.58,
+        "probability": 1.0
+      },
+      {
+        "word": "deveria",
+        "start": 11.58,
+        "end": 11.94,
+        "probability": 1.0
+      },
+      {
+        "word": "ser",
+        "start": 11.94,
+        "end": 12.02,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 11.995,
+    "end": 13.275,
+    "text": "apenas um marco histórico",
+    "display_text": "apenas um\nmarco histórico",
+    "words": [
+      {
+        "word": "apenas",
+        "start": 12.02,
+        "end": 12.36,
+        "probability": 1.0
+      },
+      {
+        "word": "um",
+        "start": 12.36,
+        "end": 12.54,
+        "probability": 0.9912109375
+      },
+      {
+        "word": "marco",
+        "start": 12.54,
+        "end": 12.8,
+        "probability": 0.9931640625
+      },
+      {
+        "word": "histórico",
+        "start": 12.8,
+        "end": 13.3,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 13.275,
+    "end": 14.355,
+    "text": "virou uma disputa sobre",
+    "display_text": "virou uma disputa sobre",
+    "words": [
+      {
+        "word": "virou",
+        "start": 13.3,
+        "end": 13.56,
+        "probability": 0.919921875
+      },
+      {
+        "word": "uma",
+        "start": 13.56,
+        "end": 13.68,
+        "probability": 1.0
+      },
+      {
+        "word": "disputa",
+        "start": 13.68,
+        "end": 14.16,
+        "probability": 1.0
+      },
+      {
+        "word": "sobre",
+        "start": 14.16,
+        "end": 14.38,
+        "probability": 0.99951171875
+      }
+    ]
+  },
+  {
+    "start": 14.355,
+    "end": 15.795,
+    "text": "crédito, dados e poder",
+    "display_text": "crédito, dados e poder",
+    "words": [
+      {
+        "word": "crédito,",
+        "start": 14.38,
+        "end": 14.96,
+        "probability": 1.0
+      },
+      {
+        "word": "dados",
+        "start": 15.12,
+        "end": 15.36,
+        "probability": 1.0
+      },
+      {
+        "word": "e",
+        "start": 15.36,
+        "end": 15.52,
+        "probability": 1.0
+      },
+      {
+        "word": "poder",
+        "start": 15.52,
+        "end": 15.82,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 15.795,
+    "end": 16.560000000000002,
+    "text": "computacional.",
+    "display_text": "computacional.",
+    "words": [
+      {
+        "word": "computacional.",
+        "start": 15.82,
+        "end": 16.44,
+        "probability": 0.99951171875
+      }
+    ]
+  }
+]

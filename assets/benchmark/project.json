@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "output": "build",
+  "components": {
+    "01_principal": {
+      "frames": 501,
+      "master": "input/01_principal.mp4",
+      "captions": "input/01_principal.captions.json",
+      "shift_y": -80,
+      "close": false,
+      "evidence": [
+        {
+          "start": 0,
+          "end": 4.3,
+          "asset": "quanta_manchete",
+          "claim": "Uma inteligência artificial pode ter resolvido um dos sete problemas do milênio.",
+          "relation": "contexto visual da referência aprovada; fixture de regressão"
+        },
+        {
+          "start": 4.3,
+          "end": 8.4,
+          "asset": "foto_ciencia",
+          "claim": "sete problemas do milênio. Uma das perguntas mais difíceis e fundamentais de toda matemática, aberta há",
+          "relation": "contexto visual da referência aprovada; fixture de regressão"
+        },
+        {
+          "start": 10.7,
+          "end": 15.0,
+          "asset": "controversia",
+          "claim": "quase 90 anos. Mas o que deveria ser apenas um marco histórico virou uma disputa sobre crédito, dados e poder",
+          "relation": "contexto visual da referência aprovada; fixture de regressão"
+        }
+      ]
+    },
+    "05_superpotencia": {
+      "frames": 328,
+      "master": "input/05_superpotencia.mp4",
+      "captions": "input/05_superpotencia.captions.json",
+      "shift_y": -260,
+      "close": true,
+      "evidence": [
+        {
+          "start": 4.6,
+          "end": 9.4,
+          "asset": "datacenter",
+          "claim": "Talvez seja quem controla os melhores modelos, maiores data centers e a energia necessária para mantê-los",
+          "relation": "contexto visual da referência aprovada; fixture de regressão"
+        }
+      ]
+    }
+  },
+  "assets": {
+    "quanta_manchete": {
+      "file": "input/quanta_manchete.png",
+      "source_url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+      "source_name": "Quanta",
+      "kind": "screenshot"
+    },
+    "foto_ciencia": {
+      "file": "input/foto_ciencia.png",
+      "source_url": "https://openai.com/index/navier-stokes-solution/",
+      "source_name": "OpenAI",
+      "kind": "diagram"
+    },
+    "controversia": {
+      "file": "input/controversia.png",
+      "source_url": "https://www.axios.com/2026/09/08/openai-math-solution-navier-stokes-credit",
+      "source_name": "Axios",
+      "kind": "screenshot"
+    },
+    "datacenter": {
+      "file": "input/datacenter.jpg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg",
+      "source_name": "Carl Lender, CC BY 2.0",
+      "kind": "photo"
+    }
+  },
+  "variants": [
+    {
+      "id": "01_principal",
+      "title": "01_principal",
+      "components": [
+        "01_principal"
+      ]
+    },
+    {
+      "id": "05_superpotencia",
+      "title": "05_superpotencia",
+      "components": [
+        "05_superpotencia"
+      ]
+    },
+    {
+      "id": "combined",
+      "title": "Multiple components — assembly regression",
+      "components": [
+        "01_principal",
+        "05_superpotencia"
+      ]
+    }
+  ]
+}

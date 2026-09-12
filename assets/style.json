@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "hyperframes_version": "0.8.33",
+  "video_bitrate": "8M",
+  "caption": {
+    "left": 90,
+    "top": 1485,
+    "width": 900,
+    "min_height": 155,
+    "font_size": 70,
+    "line_height": 1.1,
+    "letter_spacing": -0.8,
+    "stroke": 7,
+    "max_words": 5,
+    "max_chars": 29,
+    "max_lines": 2,
+    "lead": 0.025,
+    "tail": 0.12
+  },
+  "evidence": {
+    "max_width": 960,
+    "max_height": 480,
+    "close_max_height": 340,
+    "top_margin": 75,
+    "face_gap": 24
+  },
+  "speaker": {
+    "zoom": 1,
+    "mask_start_percent": 94
+  },
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "lufs": -16,
+    "true_peak": -1.5
+  }
+}

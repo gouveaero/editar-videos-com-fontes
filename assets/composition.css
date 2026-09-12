@@ -1,0 +1,13 @@
+@font-face{font-family:Speech;src:url(assets/ArialBold.ttf);font-weight:700}
+*{box-sizing:border-box}html,body{margin:0;padding:0;background:#050809}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#050809}
+#speaker{position:absolute;left:0;top:{{shift_y}}px;width:1080px;height:1920px;object-fit:contain;
+ -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 {{mask_start}}%,transparent 100%);
+ mask-image:linear-gradient(to bottom,#000 0%,#000 {{mask_start}}%,transparent 100%)}
+.caption{position:absolute;left:{{left}}px;top:{{top}}px;width:{{width}}px;min-height:{{min_height}}px;
+ display:flex;align-items:center;justify-content:center;text-align:center;opacity:0}
+.caption .line{font-family:Speech,Arial,sans-serif;font-size:{{font_size}}px;font-weight:700;
+ line-height:{{line_height}};letter-spacing:{{letter_spacing}}px;color:#fff;-webkit-text-stroke:{{stroke}}px #090909;
+ paint-order:stroke fill;text-shadow:0 4px 8px #000,0 0 5px #000;white-space:pre-line}
+.evidence{position:absolute;left:50%;top:75px;transform:translateX(-50%);
+ object-fit:contain;opacity:0;border:0;padding:0;background:transparent;border-radius:0;box-shadow:none}

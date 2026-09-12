@@ -1,0 +1,113 @@
+{
+  "date_utc": "2026-09-11T11:15:33.408104+00:00",
+  "skill_version": 2,
+  "invariant_checks": {
+    "ok": true,
+    "checks": [
+      "approved inputs accepted",
+      "automatic zoom rejected",
+      "unknown variant component rejected",
+      "caption touching beard rejected",
+      "evidence touching hair rejected",
+      "missing provenance rejected",
+      "unreadable screenshot rejected",
+      "overlapping subtitles rejected",
+      "invented display words rejected",
+      "real word times retained during import",
+      "reviewed captions not overwritten",
+      "framing change invalidates render cache",
+      "highlight preserves original, glyphs and unselected pixels",
+      "evidence output not overwritten",
+      "highlight outside crop rejected"
+    ]
+  },
+  "regression": {
+    "ok": true,
+    "technical": [
+      {
+        "id": "01_principal",
+        "ok": true,
+        "issues": [],
+        "frames": 501
+      },
+      {
+        "id": "05_superpotencia",
+        "ok": true,
+        "issues": [],
+        "frames": 328
+      },
+      {
+        "id": "combined",
+        "ok": true,
+        "issues": [],
+        "frames": 829
+      }
+    ],
+    "visual": [
+      {
+        "component": "01_principal",
+        "time": 1.5,
+        "golden": "golden/01_principal_1.5.png",
+        "mean_absolute_error": 0.0,
+        "caption_error": 0.0,
+        "ok": true
+      },
+      {
+        "component": "01_principal",
+        "time": 5.7,
+        "golden": "golden/01_principal_5.7.png",
+        "mean_absolute_error": 0.0,
+        "caption_error": 0.0,
+        "ok": true
+      },
+      {
+        "component": "01_principal",
+        "time": 12.7,
+        "golden": "golden/01_principal_12.7.png",
+        "mean_absolute_error": 0.0,
+        "caption_error": 0.0,
+        "ok": true
+      },
+      {
+        "component": "05_superpotencia",
+        "time": 2,
+        "golden": "golden/05_superpotencia_2.0.png",
+        "mean_absolute_error": 0.0,
+        "caption_error": 0.0,
+        "ok": true
+      },
+      {
+        "component": "05_superpotencia",
+        "time": 6,
+        "golden": "golden/05_superpotencia_6.0.png",
+        "mean_absolute_error": 0.1633,
+        "caption_error": 0.0,
+        "ok": true
+      },
+      {
+        "component": "05_superpotencia",
+        "time": 9.5,
+        "golden": "golden/05_superpotencia_9.5.png",
+        "mean_absolute_error": 0.492,
+        "caption_error": 0.4067,
+        "ok": true
+      }
+    ],
+    "scope": "Two supplied-footage components, six approved frames. Editorial selection and other footage still require review.",
+    "engine_sha256": "246a0e4deaf253f11b5586f942f730be51bc70aa6ded7dc7771d1e8d0821cadb",
+    "style_sha256": "63b5c603892ed73668e3a3a8ac9cc62e5d70aa956d8b7008ebec798826f7c5a7"
+  },
+  "raw_cut_integration": "PASS: 2 intervals, 30 decoded frames / 1 second, stereo 48kHz",
+  "word_offset_integration": "PASS: word timestamps in second component shifted by first component duration",
+  "portable_package": "PASS: CRC checked, extracted to separate temporary folder, project validated and all media dependencies resolved",
+  "approved_delivery": "All six MP4 hashes match the approved test delivery",
+  "script_sha256": {
+    "regression.py": "ddfd25fc0ddb16efb30955f52f2caeeff7f20739c5db8ce16dc2e1cc42594076",
+    "video_pipeline.py": "246a0e4deaf253f11b5586f942f730be51bc70aa6ded7dc7771d1e8d0821cadb",
+    "package_project.py": "3ed338e1262b2b6ed608e65c5f9ad76a48c84c76cdadf3b5d1d812080142a039",
+    "prepare_evidence.py": "d504894afae50dc40739aa93ab9639244e191e0e3cddd0771ce5500ce6234c11",
+    "check_invariants.py": "d680dc6d19525195d579c7e3b49beb0944f64b1a827c6695b91e24e39c82a6a7",
+    "import_words.py": "f3ded5224f500bec6ed6586c4148145cac1f00f867c7050c0ba1762f8dafeb52"
+  },
+  "limitation": "Results cover supplied benchmark footage and tested invariants; new footage and source selection still require editorial and visual review."
+}

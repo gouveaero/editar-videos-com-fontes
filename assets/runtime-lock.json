@@ -1,0 +1,9 @@
+{
+  "hyperframes": "0.8.33",
+  "python_min": "3.9",
+  "pillow_tested": "12.2.0",
+  "ffmpeg_tested": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "font": "Bundled Arial Bold from the approved local project",
+  "gsap": "Bundled original gsap.min.js from the approved HyperFrames project",
+  "privacy": "Benchmark footage is Gabriel’s local supplied footage. No upload is required."
+}

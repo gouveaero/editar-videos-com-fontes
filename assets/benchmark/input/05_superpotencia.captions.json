@@ -1,0 +1,248 @@
+[
+  {
+    "start": 0,
+    "end": 1.215,
+    "text": "Talvez a próxima",
+    "display_text": "Talvez a próxima",
+    "words": [
+      {
+        "word": "Talvez",
+        "start": 0.0,
+        "end": 0.68,
+        "probability": 0.9560546875
+      },
+      {
+        "word": "a",
+        "start": 0.68,
+        "end": 0.86,
+        "probability": 0.98583984375
+      },
+      {
+        "word": "próxima",
+        "start": 0.86,
+        "end": 1.24,
+        "probability": 0.99853515625
+      }
+    ]
+  },
+  {
+    "start": 1.215,
+    "end": 2.935,
+    "text": "superpotência científica não",
+    "display_text": "superpotência\ncientífica não",
+    "words": [
+      {
+        "word": "superpotência",
+        "start": 1.24,
+        "end": 2.14,
+        "probability": 0.9697265625
+      },
+      {
+        "word": "científica",
+        "start": 2.14,
+        "end": 2.82,
+        "probability": 0.99658203125
+      },
+      {
+        "word": "não",
+        "start": 2.82,
+        "end": 2.96,
+        "probability": 0.98828125
+      }
+    ]
+  },
+  {
+    "start": 2.935,
+    "end": 4.074999999999999,
+    "text": "seja quem tem os maiores",
+    "display_text": "seja quem tem os maiores",
+    "words": [
+      {
+        "word": "seja",
+        "start": 2.96,
+        "end": 3.34,
+        "probability": 0.990234375
+      },
+      {
+        "word": "quem",
+        "start": 3.34,
+        "end": 3.54,
+        "probability": 0.994140625
+      },
+      {
+        "word": "tem",
+        "start": 3.54,
+        "end": 3.68,
+        "probability": 0.95947265625
+      },
+      {
+        "word": "os",
+        "start": 3.68,
+        "end": 3.82,
+        "probability": 0.99365234375
+      },
+      {
+        "word": "maiores",
+        "start": 3.82,
+        "end": 4.1,
+        "probability": 0.99609375
+      }
+    ]
+  },
+  {
+    "start": 4.074999999999999,
+    "end": 4.595,
+    "text": "gênios.",
+    "display_text": "gênios.",
+    "words": [
+      {
+        "word": "gênios.",
+        "start": 4.1,
+        "end": 4.5,
+        "probability": 0.97412109375
+      }
+    ]
+  },
+  {
+    "start": 4.595,
+    "end": 6.114999999999999,
+    "text": "Talvez seja quem controla os",
+    "display_text": "Talvez seja quem\ncontrola os",
+    "words": [
+      {
+        "word": "Talvez",
+        "start": 4.62,
+        "end": 5.06,
+        "probability": 0.9990234375
+      },
+      {
+        "word": "seja",
+        "start": 5.06,
+        "end": 5.26,
+        "probability": 0.99755859375
+      },
+      {
+        "word": "quem",
+        "start": 5.26,
+        "end": 5.46,
+        "probability": 0.98828125
+      },
+      {
+        "word": "controla",
+        "start": 5.46,
+        "end": 6.0,
+        "probability": 0.9970703125
+      },
+      {
+        "word": "os",
+        "start": 6.0,
+        "end": 6.14,
+        "probability": 0.998046875
+      }
+    ]
+  },
+  {
+    "start": 6.114999999999999,
+    "end": 7.574999999999999,
+    "text": "melhores modelos, maiores",
+    "display_text": "melhores\nmodelos, maiores",
+    "words": [
+      {
+        "word": "melhores",
+        "start": 6.14,
+        "end": 6.4,
+        "probability": 0.9990234375
+      },
+      {
+        "word": "modelos,",
+        "start": 6.4,
+        "end": 7.12,
+        "probability": 1.0
+      },
+      {
+        "word": "maiores",
+        "start": 7.32,
+        "end": 7.6,
+        "probability": 0.9990234375
+      }
+    ]
+  },
+  {
+    "start": 7.574999999999999,
+    "end": 8.955,
+    "text": "data centers e a energia",
+    "display_text": "data centers e a energia",
+    "words": [
+      {
+        "word": "data",
+        "start": 7.6,
+        "end": 7.82,
+        "probability": 0.8818359375
+      },
+      {
+        "word": "centers",
+        "start": 7.82,
+        "end": 8.34,
+        "probability": 0.9892578125
+      },
+      {
+        "word": "e",
+        "start": 8.34,
+        "end": 8.6,
+        "probability": 0.97265625
+      },
+      {
+        "word": "a",
+        "start": 8.6,
+        "end": 8.72,
+        "probability": 0.99560546875
+      },
+      {
+        "word": "energia",
+        "start": 8.72,
+        "end": 8.98,
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "start": 8.955,
+    "end": 10.254999999999999,
+    "text": "necessária para mantê-los",
+    "display_text": "necessária para mantê-los",
+    "words": [
+      {
+        "word": "necessária",
+        "start": 8.98,
+        "end": 9.62,
+        "probability": 0.9990234375
+      },
+      {
+        "word": "para",
+        "start": 9.62,
+        "end": 9.82,
+        "probability": 0.99658203125
+      },
+      {
+        "word": "mantê-los",
+        "start": 9.82,
+        "end": 10.28,
+        "probability": 0.9931640625
+      }
+    ]
+  },
+  {
+    "start": 10.254999999999999,
+    "end": 10.933333333333334,
+    "text": "funcionando.",
+    "display_text": "funcionando.",
+    "words": [
+      {
+        "word": "funcionando.",
+        "start": 10.28,
+        "end": 10.82,
+        "probability": 0.998046875
+      }
+    ]
+  }
+]
