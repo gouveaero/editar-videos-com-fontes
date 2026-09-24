@@ -1,4 +1,16 @@
-# Perfil visual e projeto de referência
+# Perfil visual e projetos de referência
+
+## Preferências incorporadas em 17/09/2026
+
+Use o modo editorial para o acabamento mais recente: uma imagem grande por vez, títulos legíveis no espaço livre, interfaces com hierarquia e ação real, sons discretos ligados aos eventos e enquadramento individual dos ganchos. Corte a inspiração real antes do corpo compartilhado em todas as variantes, depois de inspecionar o áudio.
+
+Valores do caso de polímatas — 1,68× de zoom, 0,533 s de corte, sete ganchos e velocidade 1,1× — foram decisões daquele pedido. Não são valores automáticos para outra gravação. Velocidade 1× por padrão; o usuário decide acelerar.
+
+A skill contém os modelos, fontes, lógica e testes necessários em `assets/editorial` e `scripts/editorial_*`; não depende dos arquivos do projeto antigo ou de outra skill de design. Leia [direção visual](direcao-visual.md) e [cortes e som](audio-e-tempo.md).
+
+## Perfil original preservado (10/09/2026)
+
+As restrições de zoom e tamanhos abaixo descrevem a reprodução desse vídeo antigo, não proíbem o novo modo editorial.
 
 Ponto de partida do vídeo de IA aprovado em 10/09/2026, sem transformar suas durações ou seis ganchos em exigências universais:
 

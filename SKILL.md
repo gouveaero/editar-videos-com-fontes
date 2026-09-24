@@ -1,60 +1,55 @@
 ---
 name: editar-videos-com-fontes
-description: Editar vídeos de Gabriel falando para a câmera, com cortes naturais, ganchos alternativos, legendas e capturas reais de fontes com passagens destacadas. Usar para repetir esse padrão de edição ou preparar sua entrega; não ativa para geração de apresentador ou simples análise de um vídeo.
+description: Editar vídeos de Gabriel falando para a câmera, com cortes naturais, ganchos alternativos, legendas, fontes reais, imagens grandes, demonstrações animadas e efeitos sonoros. Usar para produzir, revisar ou entregar esse padrão de vídeo; não para gerar apresentador ou apenas analisar um vídeo.
 ---
 
 # Editar vídeos com fontes
 
-Produza uma montagem simples, com o apresentador em destaque, a fala coerente e as fontes funcionando como evidência visual. Estes são os padrões pessoais de Gabriel; novas instruções e a referência fornecida para cada vídeo prevalecem.
+Entregue fala íntegra, ritmo natural e elementos visuais legíveis no celular. Esta skill inclui a direção visual e os recursos executáveis necessários; não depende de outra skill de design. A referência e as instruções do vídeo atual prevalecem sobre padrões anteriores.
 
-## Base executável
+## Escolha o caminho mínimo
 
-Esta skill inclui um motor reutilizável, não apenas instruções. Use [video_pipeline.py](scripts/video_pipeline.py) com um arquivo de projeto para especificar fontes, cortes, componentes, ganchos, cues e recortes. Adapte esses dados a cada vídeo; não reescreva o renderizador a cada trabalho. A montagem aceita qualquer quantidade de variantes e reutiliza componentes compartilhados.
+- **Edição com acabamento visual:** use [editorial_pipeline.py](scripts/editorial_pipeline.py), que estende o motor estável com enquadramento por tomada, imagens únicas, títulos, conexões, gráficos, demonstrações e sons. Leia [contrato básico](references/projeto.md) e [contrato editorial](references/editorial.md).
+- **Montagem simples ou reprodução antiga:** [video_pipeline.py](scripts/video_pipeline.py) mantém o perfil original sem zoom. Os projetos anteriores continuam compatíveis.
+- **Só entrega ou melhoria da skill:** preserve os vídeos aprovados. Não renderize de novo por carregar esta skill.
+- **Revisão pontual:** altere a menor unidade necessária. Um defeito no corpo compartilhado deve ser corrigido em todas as variantes que o usam; um defeito exclusivo de um gancho não deve modificar os outros.
 
-- [Contrato e comandos](references/projeto.md): ler ao iniciar uma edição. Define os dois modos de entrada (brutos com cortes ou masters já editados), importação de transcrição, composição, exportação e pacote.
-- [style.json](assets/style.json) e [composition.css](assets/composition.css): fonte, tamanho, contorno, posição, limites de imagens e escala. Fonte e GSAP usados na entrega aprovada estão incluídos. O motor fixa HyperFrames 0.8.33.
-- [Validação](references/validacao.md): ler ao alterar o motor ou estilo. Explica os testes de falhas e a regressão com dois componentes reais e seis quadros aprovados, incluídos em `assets/benchmark/`.
+Antes de editar, localize brutos, roteiro, transcrições, fontes, referência e última versão aprovada. Use uma nova pasta de revisão; mantenha as anteriores. Não imponha sete ganchos, duração fixa, uma profissão, a paleta ou exemplos de um projeto antigo.
 
-Sequência normal: decidir os cortes → gerar masters → transcrever o áudio editado → importar e revisar cues → selecionar e preparar evidências → validar o projeto → gerar composições e conferir a principal → renderizar variantes → verificar MP4 → registrar revisão editorial → empacotar. Etapas já concluídas podem ser reutilizadas quando seus arquivos e parâmetros permanecem idênticos. A transcrição e a seleção editorial não são fingidas pelo motor.
+## Fala, respiração e relógio único
 
-Mudanças no motor, CSS, fonte ou versão do renderizador devem passar por `check_invariants.py` e `regression.py` em uma pasta de QA separada. Não rode a regressão inteira a cada vídeo sem mudança técnica. Nunca substitua os benchmarks ou aumente tolerâncias para esconder uma divergência. Nos novos vídeos, faça a validação do projeto e a revisão de suas próprias cenas.
+Transcreva o **áudio realmente editado**, com tempos por palavra, e preserve o JSON original. Não invente falas ou sintetize uma abertura ausente. Registre origem, entrada, saída, número de quadros e motivo dos cortes.
 
-## Escopo e entradas
+Na junção gancho → corpo, confira o final da última palavra, a inspiração e o início real da primeira consoante. **Uma pausa curta ainda pode conter uma respiração audível.** O tempo de palavra do ASR e um limiar de silêncio são pistas, não o ponto de corte definitivo. Use [inspect_audio.py](scripts/inspect_audio.py) para gerar trecho de escuta, forma de onda e espectrograma. Confirme a frase depois do corte; não alegue audição integral quando só houve análise técnica. Veja [cortes e som](references/audio-e-tempo.md).
 
-Separe o pedido de edição do pedido de entrega. Quando Gabriel disser que a edição atual está aprovada e quiser somente os arquivos, a legenda ou uma melhoria futura na skill, preserve os MP4 e seus cortes. Prepare os complementos sem renderizar novamente. “Legenda para publicar” é o texto do post; diferencie das legendas sincronizadas já gravadas no vídeo.
+Corte logo antes da fala com pequena margem que preserve a consoante inicial; não copie os 16 quadros usados em outra gravação. Um fade curto evita clique, mas não substitui retirar a inspiração. Preserve pausas expressivas e as ressalvas do argumento.
 
-Localize os brutos, o roteiro, a referência visual, os links e a entrega anterior. Leia transcrições existentes antes de transcrever novamente. Inspecione quadros da referência e dos brutos para identificar posições e escala do rosto; não presuma que a versão gerada anteriormente seja a referência correta.
+Mantenha **um relógio por componente final** para fala, legendas, imagens, estados das demonstrações, música e SFX. Para cortar o início ou mudar a velocidade, use [retime_project.py](scripts/retime_project.py): ele cria outra revisão e aplica o mesmo mapa a todas essas posições. Tempos relativos dos estados também mudam. Não misture tempos de bruto, 1× e saída final. Velocidade padrão 1×; 1,1× somente quando solicitado, com pitch preservado. Nunca acelere duas vezes um master já acelerado.
 
-## Fala e montagem
+## Direção visual incorporada
 
-Transcreva o áudio real com tempos por palavra e mantenha a transcrição original junto às correções. Use o roteiro para entender a intenção, nunca para inventar palavras que não foram gravadas. Revise nomes, números e termos técnicos pelo áudio e pelas fontes.
+Leia [direção visual](references/direcao-visual.md) quando compuser ou revisar elementos. Use o rosto como presença principal e o material de apoio para tornar uma ideia concreta.
 
-Registre cortes e variantes em um plano editável: arquivo de origem, entrada, saída, motivo, número de quadros e sequência. Preserve frases e argumentos completos, ganchos inteiros e contexto necessário. Remova preparação, tentativas duplicadas, respirações nas emendas e silêncios excessivos; mantenha pausas naturais. Não force duração nem acelere a fala para cumprir uma estimativa não rígida. Se um gancho já apresenta dados, adapte a entrada no corpo para evitar a repetição imediata.
+- Meça o enquadramento de **cada tomada**, inclusive início, meio, fim e movimento mais próximo. Aproximar o rosto e remover teto indesejado é permitido. Configure escala/origem; confira cabelo, barba e fundo depois do zoom. Igualar a sensação de proximidade pode exigir escalas diferentes em brutos diferentes.
+- Mostre primeiro o apresentador iniciando a ideia; introduza a imagem na palavra pertinente. Evite um flash do rosto seguido imediatamente por uma tela cheia após o gancho.
+- Para obras e fotos de destaque, prefira **uma imagem grande por vez**, proporcional. Não duplique miniatura e detalhe nem encaixe duas imagens ilegíveis para preencher espaço. Capturas de publicações podem usar um recorte focado sobre a câmera ou tela inteira conforme a legibilidade.
+- Títulos de ênfase ficam no espaço livre acima do rosto quando ele existe. Se o zoom ocupou esse espaço, reposicione; nunca deixe o texto atravessar cabelo, olhos ou barba. Confira novamente as legendas depois de reenquadrar.
+- Hierarquia clara, tipografia local, poucos níveis de texto, espaço generoso e contraste. Uma mudança de estado deve explicar uma ação. Evite cartões decorativos repetidos, rótulos minúsculos e movimento sem função.
 
-Monte componentes compartilhados e ganchos separados. Use FFmpeg para cortes e áudio, preferindo HyperFrames para a composição quando disponível. Leia a documentação instalada antes de usar comandos novos. Para detalhes do padrão validado e do projeto anterior, consulte [o perfil de referência](references/perfil-gabriel.md). Novos parâmetros de enquadramento, cortes ou layout precisam participar da chave de cache; não reutilize renders antigos só porque os nomes coincidem.
+Os recursos em `assets/editorial/` incluem CSS, Newsreader, Source Sans 3, licenças e modelos funcionais de navegação, pêndulo e cronologia com documentos. São pontos de partida configuráveis, não conteúdo para inserir automaticamente. Teste ações e dados; identifique dados fictícios como **Exemplo ilustrativo**. Animação HTML criada localmente não deve ser chamada de captura real de um site. Não prometa funcionamento de um botão só porque ele foi desenhado.
 
-## Evidência visual: contexto e destaque
+## Fontes reais e legendas
 
-Escolha primeiro a frase da fonte que sustenta a fala daquele instante. Registre a relação como declaração, alegação, resposta, dado ou contexto. Na passagem sobre possível uso de dados de pesquisadores, busque o trecho da declaração do pesquisador que questiona esse uso. Uma manchete genérica ou uma frase sobre não conhecer o funcionamento do modelo não substitui essa passagem. Preserve o caráter de hipótese ou alegação e apresente a resposta da outra parte na fala correspondente.
+Escolha a passagem que sustenta exatamente a fala e registre alegação/relação, URL e crédito. Preserve qualificações, hipótese e resposta pertinente. Capture a publicação real; não redesenhe uma manchete ou parágrafo como se fosse original. [prepare_evidence.py](scripts/prepare_evidence.py) e [manifesto de evidências](references/evidencias.md) preservam fonte, recorte e marcação. Se o navegador estiver indisponível, use um documento oficial real quando adequado e identifique-o corretamente.
 
-Capture a publicação real pelo navegador ou ferramenta de captura disponível. Preserve o arquivo original. Recorte um trecho contextualizado — normalmente um pequeno bloco de parágrafo com a passagem importante — e destaque as linhas pertinentes na própria captura. Prefira isso a títulos isolados quando a fala trata de um argumento específico. Respeite os limites de reprodução aplicáveis; não suponha que uma captura permita copiar uma publicação inteira. Use material fornecido pelo usuário quando adequado.
+Legenda branca, contorno escuro, até duas linhas, sem caixa, distante da barba. Destaque pontual, não a frase inteira. Use a lista de cues tanto no MP4 quanto no SRT. Saída de referência: 1080×1920/30; margens de texto de 250 px no topo e base. Veja [perfil de Gabriel](references/perfil-gabriel.md) para distinguir preferências de valores específicos de um vídeo.
 
-Preserve tipografia e aparência da publicação; não reescreva a manchete como cartão HTML. Mantenha identificação da fonte no recorte quando couber sem destruir a leitura, e sempre registre URL, página/seção e créditos no projeto. Não junte pedaços descontínuos para aparentarem uma citação contínua. Inclua qualificações que mudam o sentido do trecho destacado.
+## Som e verificação
 
-Para automatizar recorte e marca-texto sem redesenhar letras, use [prepare_evidence.py](scripts/prepare_evidence.py) com o [manifesto de evidência](references/evidencias.md). O script preserva o original e registra coordenadas e hashes; ele não escolhe a frase nem verifica sua relação com a fala. Faça essa revisão editorial antes de executá-lo. Se o texto ficar pequeno na composição, selecione um trecho mais focado ou divida em dois recortes sequenciais com contexto; não comprima uma página inteira no alto.
+Use efeitos correspondentes às ações: clique na seleção, chave no controle, transição discreta na troca, confirmação no resultado. Não sonorize cada palavra. Escolha sons locais autorizados, registre origem/licença conhecida, recorte o ataque e mantenha-os abaixo da voz. O motor gera faixas separadas e permite reduzir a música em intervalos relevantes; veja [cortes e som](references/audio-e-tempo.md). Música e SFX são opcionais; não adicione ruído para preencher silêncio.
 
-Alterne fontes e fotos pertinentes, mantendo alguns trechos somente com apresentador e legenda. Recortes proporcionais, centralizados no alto; sem moldura, fundos adicionais, título inventado ou animação decorativa. Um marca-texto discreto pode ser estático. O tamanho depende do conteúdo e do espaço acima do rosto, não de uma caixa uniforme.
+Faça uma primeira revisão visual em lote, corrija os problemas encontrados e confirme os quadros afetados. Antes do lote final, confira uma versão principal, **todas as emendas diferentes** e os estados das demonstrações. Um corpo igual permite reaproveitar a revisão do corpo, não presumir que todos os ganchos estão bons.
 
-## Legendas e enquadramento
+Mudança no motor/estilo exige [testes e limites](references/validacao.md): invariantes, regressão antiga e checks editoriais quando afetados. Verifique decodificação completa, quadros, A/V, áudio, SRT e equivalência do corpo. Cache inclui código, fontes, mídia, enquadramento e eventos; não reaproveite um render só pelo nome.
 
-Mantenha escala original do rosto, com redimensionamento proporcional para a resolução de saída. Use apenas os ajustes verticais necessários. Não aplique zoom alternado automaticamente nas emendas.
-
-Sincronize legendas com as palavras do áudio final; agrupe por leitura e sentido, com até duas linhas e sem órfãs desnecessárias. Use o estilo do perfil como ponto de partida e confira as tomadas próximas. Legenda branca, contorno escuro, sombra discreta, sem caixa; preserve distância da barba. Gere SRT da mesma lista de cues usada no render.
-
-## Verificação e entrega
-
-Confira a principal ao lado da referência antes de renderizar todas as variantes. Revise especialmente emendas, números, nomes, palavras recuperadas, relação entre fala e fonte, tamanho do texto na escala de celular e espaço ao redor do rosto. Um script de QA técnico não substitui essas decisões visuais e editoriais.
-
-Exporte MP4, SRT, plano e composições editáveis; preserve a edição anterior. Verifique decodificação completa dos arquivos, duração, quadros, ausência de falhas e alinhamento entre áudio e vídeo. [package_project.py](scripts/package_project.py) gera galeria e ZIP com MP4, SRT, legenda de publicação, créditos e composições editáveis com sua mídia. Ele exige verificação técnica e registro da revisão efetivamente feita; esse registro não é um pedido de aprovação ao usuário. Atualize a galeria apenas com arquivos completos. Não publique nas redes como consequência implícita da entrega.
-
-Na legenda de publicação, mantenha a tese e uma pergunta relevante, evitando transformar alegações em fatos confirmados. Dê um texto pronto para copiar; não entregue seis textos quase iguais se o usuário pediu uma legenda.
+[package_project.py](scripts/package_project.py) cria galeria e ZIP com MP4, SRT, legenda de publicação, fontes e composições. Projetos editoriais incluem motor, fontes locais, demonstrações, documentos e sons para reconstrução independente. Inspecione o pacote extraído; preserve também o plano e a revisão efetivamente feita. O registro editorial é documentação do trabalho, não um pedido de aprovação. Não publique em redes como consequência da entrega.

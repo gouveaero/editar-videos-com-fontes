@@ -1,5 +1,16 @@
 # O que sustenta a consistência
 
+## Camada editorial integrada
+
+`python3 scripts/check_editorial.py --output /nova/pasta/editorial-qa --render` testa recusa de texto sobre o rosto, destinos de navegação inexistentes, documento ausente, SFX fora da duração, cenas sobrepostas e física inválida. Testa o mapa comum de tempo em cortes/velocidade/cues/palavras/estados/sons, bloqueio de palavra cortada, mudança da assinatura de cache ao alterar zoom, período físico do pêndulo, navegação e seleção de documentos. Executa um retiming FFmpeg real e verifica quadros/amostras; depois renderiza e decodifica as fixtures.
+
+Inspecione os snapshots, inclusive início, meio e fim das demos e o rosto na janela. Testes dos modelos não substituem testar os controles na prévia. Para a fixture, `check_demo_ui.cjs` abre Chrome headless novo e executa cliques reais, slider, abertura do documento e busca para trás: `node scripts/check_demo_ui.cjs /caminho/puppeteer-core /caminho/chrome /qa/project.json`. Use os caminhos do runtime local disponível; o teste não controla a sessão de navegação do usuário. Meça pico e escute o mix; confira amostras de cada emenda gancho/corpo. Verifique que todas as variantes usam o mesmo corpo corrigido e que legendas/efeitos foram deslocados junto.
+
+Teste o ZIP extraído em outro diretório: construa as composições com o motor incluído, abra documentos e confirme fontes/mídia/sons online. O pacote não pode depender de `revisao_06`, da pasta da skill instalada ou do banco original de efeitos.
+
+O motor básico e seus benchmarks continuam sendo a prova de compatibilidade. Não altere os quadros de referência ou tolerâncias para fazer a nova camada passar. O preset editorial tem aparência própria; seus testes visuais são separados.
+
+
 ## Verificações reproduzíveis
 
 `scripts/check_invariants.py` exercita falhas observáveis: zoom adicional, componente inexistente, imagens sobre o cabelo, legendas sobre a barba, procedência ausente, captura ilegível na escala final, cues sobrepostas, palavras inventadas na exibição e tentativa de sobrescrever legendas revisadas. Também verifica a importação de tempos reais por palavra e a invalidação do cache quando muda o enquadramento.

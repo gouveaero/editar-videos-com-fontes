@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-17",
+  "scope": "Independent editorial layer and portable packaging; no changes to previously delivered user videos.",
+  "skill_validator": "passed",
+  "relative_document_links": "passed",
+  "legacy_regression": {
+    "ok": true,
+    "technical_variants": 3,
+    "golden_frames": 6
+  },
+  "editorial_checks": [
+    "valid multi-scene project",
+    "face obstruction rejected",
+    "broken prototype link rejected",
+    "missing document rejected",
+    "SFX outside duration rejected",
+    "overlapping scenes rejected",
+    "invalid physics rejected",
+    "one map shifts cut, speed, words, scenes, local states, SFX and ducking",
+    "cut into spoken word rejected",
+    "models OK",
+    "zoom change invalidates cache",
+    "FFmpeg retime exact frames and audio duration"
+  ],
+  "editorial_rendered_variants": [
+    {
+      "id": "01_principal",
+      "ok": true,
+      "issues": [],
+      "frames": 501
+    },
+    {
+      "id": "05_superpotencia",
+      "ok": true,
+      "issues": [],
+      "frames": 328
+    },
+    {
+      "id": "combined",
+      "ok": true,
+      "issues": [],
+      "frames": 829
+    }
+  ],
+  "browser_interaction_checks": [
+    "actual pointer click opens and returns to prototype states",
+    "invisible panels cannot intercept clicks",
+    "range input updates physical period",
+    "event click selects linked document",
+    "linked local document loads",
+    "backward seek restores simulation state",
+    "no browser errors or overflowing panels"
+  ],
+  "audio": {
+    "sfx_before": -91.0,
+    "sfx_during": -28.0,
+    "sfx_after": -91.0,
+    "bed_normal": -51.5,
+    "bed_ducked": -62.0,
+    "ok": true
+  },
+  "portable_package": {
+    "ok": true,
+    "relative_media_paths": 12,
+    "zip_crc": true,
+    "duplicate_entries": false,
+    "bundled_engine_validation_and_build": true
+  },
+  "portable_browser_interactions": "passed",
+  "unchanged_legacy_engine_css_style": true,
+  "external_design_skill_dependency": false,
+  "limitations": [
+    "Measured face bounds and manual editorial/audio review remain necessary.",
+    "The helper generates breath inspection evidence, not automatic phoneme recognition.",
+    "Fixtures verify reusable behavior, not the quality of arbitrary new content."
+  ]
+}

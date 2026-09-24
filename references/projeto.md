@@ -1,4 +1,6 @@
-# Contrato do projeto e comandos
+# Contrato básico do projeto e comandos
+
+Este documento descreve o modo original de `video_pipeline.py`. Para o acabamento integrado com zoom, imagens grandes, demos e SFX, use [editorial.md](editorial.md) e `editorial_pipeline.py`. O contrato de fontes, componentes, quadros, legendas e variantes continua igual; as restrições de zoom 1 e imagens pequenas abaixo são exclusivas do modo básico.
 
 O motor recebe dados; não contém nomes de notícias, tomadas ou durações de Gabriel no código. A versão do formato é `schema_version: 2`. Caminhos relativos são resolvidos a partir do JSON. Escolha sempre uma pasta de revisão nova; o diretório `output` é exclusivo para derivados. Os MP4 aprovados não são entradas a sobrescrever.
 

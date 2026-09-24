@@ -14,7 +14,13 @@ from video_pipeline import Project, run, write, digest
 
 
 def package(manifest,caption,review):
-    p=Project(manifest);p.verify()
+    data=json.loads(Path(manifest).read_text())
+    enhanced='editorial' in data or any(any(k in c for k in ('scenes','framing','sfx','music_duck','caption_highlights')) for c in data['components'].values())
+    if enhanced:
+        from editorial_pipeline import EditorialProject
+        p=EditorialProject(manifest)
+    else:p=Project(manifest)
+    p.verify()
     entries=json.loads((p.out/'delivery.json').read_text())
     reviews=json.loads(Path(review).read_text())
     for e in entries:
@@ -44,19 +50,43 @@ def package(manifest,caption,review):
         for name,item in built.items():
             folder=Path(item['folder']);prefix=f'project/components/{name}'
             for f in folder.rglob('*'):
-                if f.is_file() and (f.parent.name=='assets' or f.name in ('index.html','captions.json','evidence_timeline.json')):
+                if f.is_file() and (f.parent.name=='assets' or f.name in ('index.html','captions.json','evidence_timeline.json','editorial_timeline.json')):
                     z.write(f,f'{prefix}/{f.relative_to(folder)}')
             c=portable['components'][name];c.pop('cuts',None);c['master']=f'components/{name}/assets/speaker.mp4';c['captions']=f'components/{name}/captions.json'
             for event in p.events(name):asset_locations[event['asset']]=f'components/{name}/assets/{event["asset"]}{Path(event["file"]).suffix.lower()}'
         portable['assets']={k:dict(p.assets[k],file=loc) for k,loc in asset_locations.items()}
         if p.data.get('music'):
             music=p.data['music'];source=p.path(music['file']);loc='audio/music'+source.suffix;z.write(source,'project/'+loc);portable['music']=dict(music,file=loc)
+        if enhanced:
+            from video_pipeline import SKILL
+            # Original sources, editable models, bundled fonts/licenses and runtime travel
+            # together. No dependency on the previous project or another skill remains.
+            for key,asset in p.assets.items():
+                if key not in asset_locations:
+                    source=p.path(asset['file']);loc=f'media/{key}{source.suffix}'
+                    z.write(source,'project/'+loc);portable['assets'][key]=dict(asset,file=loc)
+            for key,source in portable.get('editorial',{}).get('sounds',{}).items():
+                original=p.path(source['file']);loc=f'audio/{key}{original.suffix}';z.write(original,'project/'+loc);source['file']=loc
+            for name,c in portable['components'].items():
+                for i,s in enumerate(c.get('scenes',[])):
+                    if s['type']=='chronology':
+                        for j,event in enumerate(s['events']):
+                            source=p.path(event['document']['href']);loc=f'documents/{name}-{i}-{j}{source.suffix}';z.write(source,'project/'+loc);event['document']['href']=loc
+            for folder in ('scripts','assets'):
+                for source in (SKILL/folder).rglob('*'):
+                    if source.is_file() and '__pycache__' not in source.parts and 'benchmark' not in source.parts:
+                        z.write(source,'project/skill/'+str(source.relative_to(SKILL)))
+            for source in (p.out/'audio').glob('*.wav'):z.write(source,'project/stems/'+source.name)
+            portable['style'].pop('editorial_receipt',None)
+            for name in ('retime.json','edit_plan.json','CREDITS.md'):
+                source=p.root/name
+                if source.exists():z.write(source,name)
         z.writestr('project/project.json',json.dumps(portable,ensure_ascii=False,indent=2))
         z.writestr('FONTES.json',json.dumps(p.assets,ensure_ascii=False,indent=2))
         z.writestr('assistir.html',doc.replace('<a href="delivery.zip" download>Baixar pacote completo</a> · ',''))
         for f in ('LEGENDA_PARA_PUBLICAR.txt','technical_qa.json'):z.write(p.out/f,f)
         z.writestr('REVISAO.json',json.dumps(reviews,ensure_ascii=False,indent=2))
-        z.writestr('COMECAR_AQUI.txt','Abra assistir.html. MP4 já contém legenda; SRT é opcional. project/components contém composições HyperFrames editáveis e mídia. Para remontar por JSON, use video_pipeline.py da skill editar-videos-com-fontes com project/project.json.\n')
+        z.writestr('COMECAR_AQUI.txt',('Reconstruir: python3 project/skill/scripts/editorial_pipeline.py render project/project.json. Requer Python/Pillow, FFmpeg, Node/npm; HyperFrames 0.8.33. Fontes, modelos e sons locais incluídos.\n' if enhanced else '')+'Abra assistir.html. MP4 já contém legenda; SRT é opcional. project/components contém composições HyperFrames editáveis e mídia. Para remontar por JSON, use video_pipeline.py da skill editar-videos-com-fontes com project/project.json.\n')
     with zipfile.ZipFile(temp) as z:
         if z.testzip() is not None:raise ValueError('Package failed CRC verification')
     temp.replace(archive);write(p.out/'package.json',{'file':str(archive),'sha256':digest(archive),'bytes':archive.stat().st_size})
